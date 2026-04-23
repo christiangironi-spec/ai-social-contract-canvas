@@ -88,6 +88,153 @@ body::before {
 
 .lang-switch.inline { padding: 4px 10px; font-size: 10px; }
 
+/* =========================================================
+   AUTHOR / CONTACT CARD
+   ========================================================= */
+.author-card {
+  margin-top: 48px;
+  padding: 28px 32px 30px;
+  background: rgba(255, 252, 246, 0.7);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  text-align: left;
+  break-inside: avoid;
+}
+
+.author-card.compact {
+  margin-top: 40px;
+  padding: 20px 24px;
+  background: transparent;
+}
+
+.author-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.author-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.author-id {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  font-variation-settings: "opsz" 40;
+  flex-shrink: 0;
+}
+
+.author-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 2px;
+}
+
+.author-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 60;
+}
+
+.author-role {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.author-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.author-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 2px;
+  transition: all .2s;
+  min-width: 240px;
+}
+.author-link:hover {
+  border-color: var(--accent);
+  background: rgba(184, 67, 31, 0.04);
+}
+.al-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.al-value {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.author-link:hover .al-value { color: var(--accent); }
+
+.author-note {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.author-card.compact .author-body { justify-content: center; gap: 20px; }
+.author-card.compact .author-avatar { width: 42px; height: 42px; font-size: 14px; }
+.author-card.compact .author-name { font-size: 17px; }
+.author-card.compact .author-role { display: none; }
+.author-card.compact .author-link { padding: 6px 12px; min-width: 0; }
+.author-card.compact .al-value { font-size: 12px; }
+
+@media (max-width: 680px) {
+  .author-body { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .author-links { width: 100%; }
+  .author-link { min-width: 0; }
+}
+
 .stage {
   max-width: 1200px;
   margin: 0 auto;

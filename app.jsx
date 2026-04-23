@@ -56,6 +56,15 @@ const I18N = {
     confirmReset: 'Clear all answers and start over?',
     synthFallback: "Couldn't generate a synthesis right now — but your filled canvas above tells the story. Read it top-to-bottom and ask: which of these eight answers would I be least comfortable defending in public?",
     synthPromptLang: 'English',
+    // Author / Contact
+    authorLabel: '— Author · Contact —',
+    authorBy: 'Canvas designed by',
+    authorRole: 'Strategy · Design · AI',
+    authorContact: 'Get in touch',
+    authorEmail: 'Email',
+    authorLinkedin: 'LinkedIn',
+    authorNote: 'Feedback, critiques, and better examples are all welcome.',
+    introAuthor: 'by Christian Gironi',
   },
   it: {
     metaLeft: 'Canvas Strategico / v.01',
@@ -107,6 +116,14 @@ const I18N = {
     confirmReset: 'Cancellare tutte le risposte e ricominciare?',
     synthFallback: "Non è possibile generare una sintesi al momento — ma il tuo canvas compilato qui sopra racconta la storia. Leggilo dall'inizio alla fine e chiediti: quale di queste otto risposte avrei più difficoltà a difendere in pubblico?",
     synthPromptLang: 'Italian',
+    authorLabel: '— Autore · Contatti —',
+    authorBy: 'Canvas ideato da',
+    authorRole: 'Strategia · Design · AI',
+    authorContact: 'Scrivimi',
+    authorEmail: 'Email',
+    authorLinkedin: 'LinkedIn',
+    authorNote: 'Feedback, critiche e esempi migliori sono sempre benvenuti.',
+    introAuthor: 'di Christian Gironi',
   }
 };
 
@@ -294,8 +311,40 @@ function Intro({ t, langProps, onStart, hasProgress, completedCount, onResume })
         </div>
 
         <p className="footnote">{t.footnote}</p>
+
+        <AuthorCard t={t} compact />
       </div>
     </div>
+  );
+}
+
+// ---------- AUTHOR CARD ----------
+function AuthorCard({ t, compact }) {
+  return (
+    <section className={`author-card ${compact ? 'compact' : ''}`}>
+      <div className="author-label">{t.authorLabel}</div>
+      <div className="author-body">
+        <div className="author-id">
+          <div className="author-avatar" aria-hidden="true">CG</div>
+          <div className="author-text">
+            <div className="author-kicker">{t.authorBy}</div>
+            <div className="author-name">Christian Gironi</div>
+            <div className="author-role">{t.authorRole}</div>
+          </div>
+        </div>
+        <div className="author-links">
+          <a className="author-link" href="mailto:Christian.gironi@gmail.com">
+            <span className="al-label">{t.authorEmail}</span>
+            <span className="al-value">Christian.gironi@gmail.com</span>
+          </a>
+          <a className="author-link" href="https://www.linkedin.com/in/christiangironi/" target="_blank" rel="noopener noreferrer">
+            <span className="al-label">{t.authorLinkedin}</span>
+            <span className="al-value">linkedin.com/in/christiangironi</span>
+          </a>
+        </div>
+      </div>
+      {!compact && <p className="author-note">{t.authorNote}</p>}
+    </section>
   );
 }
 
@@ -500,6 +549,8 @@ function Outcome({ t, langProps, BLOCKS, answers, synthesis, synthLoading, onEdi
           <p className="synth-body">{synthesis}</p>
         )}
       </section>
+
+      <AuthorCard t={t} />
 
       <footer className="out-footer">
         <span>{t.heroA} {t.heroB}</span>
